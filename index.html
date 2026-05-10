@@ -516,61 +516,6 @@ section p em.gold {
 }
 .reason p strong { color: var(--text); }
 
-/* ============ WYCKOFF SCHEMATIC ============ */
-.wyckoff-schematic {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1.5rem 1rem 1rem;
-  margin: 1.5rem 0 2rem;
-}
-.wyckoff-schematic svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: 380px;
-}
-.wyckoff-stages {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin: 2rem 0 0;
-}
-@media (max-width: 800px) { .wyckoff-stages { grid-template-columns: 1fr; } }
-.wstage {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1rem 1.1rem;
-  position: relative;
-}
-.wstage .phase {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  color: var(--gold);
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.wstage .term-en {
-  font-family: var(--font-display-en);
-  font-size: 1.0rem;
-  font-weight: 600;
-  color: var(--text);
-  margin: 0.4rem 0 0.1rem;
-  letter-spacing: 0.01em;
-}
-.wstage .term-ko {
-  font-family: var(--font-display-ko);
-  font-size: 0.92rem;
-  color: var(--gold);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-.wstage .desc {
-  font-size: 0.85rem;
-  color: var(--text-mute);
-  line-height: 1.6;
-}
-
 /* ============ NEAR LEVELS TABLE ============ */
 .levels {
   background: var(--card);
@@ -1265,7 +1210,7 @@ section p em.gold {
       <div class="cta-kicker">Start Here</div>
       <div class="cta-question">차트의 현재 자리와 앞으로의 가격 흐름이 궁금하다면?</div>
       <div class="cta-action">
-        시나리오 매트릭스 + Wyckoff 통합 흐름으로 이동
+        BTC × NEAR 5년 가격 흐름 차트로 이동
         <span class="cta-arrow">→</span>
       </div>
     </a>
@@ -1662,155 +1607,10 @@ section p em.gold {
 </section>
 
 
-<!-- ============ SECTION 7 — WYCKOFF (NEW) ============ -->
+<!-- ============ SECTION 7 — NEAR LEVELS ============ -->
 <section>
   <div class="wrap">
-    <div class="section-no">07 · Wyckoff View</div>
-    <h2>Wyckoff 관점 — 매집의 5단계로 본 시나리오</h2>
-    <p class="lede-2">
-      위에서 본 "3단 바닥" 시나리오를 좀 더 정밀하게 보는 도구가 바로 <strong style="color:var(--text);">Wyckoff Accumulation(매집) 방법론</strong>입니다. 
-      큰 손이 시간을 두고 매집을 마치고 새로운 상승 추세로 진입하기 직전까지의 과정을 5단계로 나눠 봅니다. 
-      이 방법론은 100년 가까이 된 차트 분석 도구로, 지금도 박스권 바닥의 형태를 읽는 표준 프레임입니다.
-    </p>
-
-    <!-- Wyckoff schematic SVG -->
-    <div class="wyckoff-schematic">
-      <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <!-- Top resistance line -->
-        <line x1="50" y1="80" x2="750" y2="80" stroke="rgba(242,114,142,0.5)" stroke-width="1" stroke-dasharray="4,4"/>
-        <!-- Bottom support line -->
-        <line x1="50" y1="200" x2="750" y2="200" stroke="rgba(91,169,242,0.5)" stroke-width="1" stroke-dasharray="4,4"/>
-
-        <!-- Phase A: SC, AR, ST -->
-        <path d="M 50 100 L 80 250 L 130 130 L 180 200 L 230 150" stroke="#8FA0C0" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        
-        <!-- Phase B: choppy in box -->
-        <path d="M 230 150 L 260 200 L 290 130 L 320 180 L 350 110 L 380 190 L 410 140" stroke="#8FA0C0" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-        <!-- Phase C: Spring (drop below support, then bounce) -->
-        <path d="M 410 140 L 440 200 L 470 245 L 500 195 L 525 175" stroke="#F2728E" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-        <!-- Phase D: LPS to SOS -->
-        <path d="M 525 175 L 555 200 L 585 130 L 615 165 L 650 100" stroke="#5BCFA8" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-        <!-- Phase E: Markup -->
-        <path d="M 650 100 L 700 50 L 750 30" stroke="#5BCFA8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <polygon points="750,30 745,40 760,38" fill="#5BCFA8"/>
-
-        <!-- Stage markers -->
-        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#E9B949" font-weight="600">
-          <text x="80" y="270" text-anchor="middle">SC</text>
-          <text x="130" y="120" text-anchor="middle">AR</text>
-          <text x="180" y="220" text-anchor="middle">ST</text>
-          <text x="320" y="100" text-anchor="middle">Phase B</text>
-          <text x="470" y="265" text-anchor="middle">Spring</text>
-          <text x="520" y="165" text-anchor="middle">Test</text>
-          <text x="555" y="220" text-anchor="middle">LPS</text>
-          <text x="615" y="120" text-anchor="middle">SOS</text>
-        </g>
-
-        <!-- Phase labels at bottom -->
-        <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#5C6E92" letter-spacing="2">
-          <text x="135" y="305" text-anchor="middle">PHASE A</text>
-          <text x="320" y="305" text-anchor="middle">PHASE B</text>
-          <text x="485" y="305" text-anchor="middle">PHASE C</text>
-          <text x="585" y="305" text-anchor="middle">PHASE D</text>
-          <text x="710" y="305" text-anchor="middle">PHASE E</text>
-        </g>
-        <g stroke="#2A3859" stroke-width="0.5">
-          <line x1="220" y1="290" x2="220" y2="310"/>
-          <line x1="420" y1="290" x2="420" y2="310"/>
-          <line x1="540" y1="290" x2="540" y2="310"/>
-          <line x1="640" y1="290" x2="640" y2="310"/>
-        </g>
-
-        <!-- Y-axis labels -->
-        <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#5C6E92">
-          <text x="42" y="84" text-anchor="end">저항</text>
-          <text x="42" y="204" text-anchor="end">지지</text>
-        </g>
-      </svg>
-    </div>
-
-    <div class="wyckoff-stages">
-      <div class="wstage">
-        <div class="phase">Phase A</div>
-        <div class="term-en">SC · AR · ST</div>
-        <div class="term-ko">매도 클라이맥스 → 자동 반등 → 2차 시험</div>
-        <div class="desc">
-          <strong style="color:var(--text);">SC</strong>(Selling Climax, 매도 정점)에서 큰 매도가 한 번 터지고, 
-          <strong style="color:var(--text);">AR</strong>(Automatic Rally, 자동 반등)이 따라붙은 뒤, 
-          <strong style="color:var(--text);">ST</strong>(Secondary Test, 2차 시험)로 저점을 다시 확인합니다. 
-          하락 추세가 일단 멈추는 단계.
-        </div>
-      </div>
-      <div class="wstage">
-        <div class="phase">Phase B</div>
-        <div class="term-en">Trading Range</div>
-        <div class="term-ko">박스권 매집</div>
-        <div class="desc">
-          큰 손이 시간을 두고 사들이는 가장 긴 단계. 가격은 박스 안에서 등락을 반복하며 
-          <strong style="color:var(--text);">방향성 없이 시간만 흘러가는 것처럼 보입니다.</strong> 
-          그러나 이 시간 동안 매물대가 정리되고 매집이 진행됩니다.
-        </div>
-      </div>
-      <div class="wstage">
-        <div class="phase">Phase C</div>
-        <div class="term-en">Spring · Test</div>
-        <div class="term-ko">가짜 하락 → 시험</div>
-        <div class="desc">
-          <strong style="color:var(--text);">Spring</strong>은 박스 하단을 잠깐 깨고 더 떨어졌다가 빠르게 회복하는 움직임입니다. 
-          큰 손의 마지막 매집과 약한 손의 손절을 동시에 처리하는 자리. 
-          <strong style="color:var(--text);">Test</strong>는 그 직후 저점을 한 번 더 확인하는 과정입니다.
-        </div>
-      </div>
-      <div class="wstage">
-        <div class="phase">Phase D</div>
-        <div class="term-en">LPS</div>
-        <div class="term-ko">마지막 지지점 (Last Point of Support)</div>
-        <div class="desc">
-          박스 위로 돌파하기 직전, 박스 상단을 지지선으로 사용하는 마지막 자리. 
-          여기를 지키면 다음 단계로 진입합니다. <strong style="color:var(--text);">"이 가격은 더 이상 안 떨어진다"</strong>가 시장에서 합의되는 순간.
-        </div>
-      </div>
-      <div class="wstage">
-        <div class="phase">Phase D</div>
-        <div class="term-en">SOS</div>
-        <div class="term-ko">강세 신호 (Sign of Strength)</div>
-        <div class="desc">
-          박스 위로 강하게 돌파하는 움직임. 큰 거래량을 동반하며, 
-          <strong style="color:var(--text);">이전 사이클의 박스 천장을 명확히 뚫는 첫 신호</strong>입니다. 
-          여기서부터가 본격적인 상승 추세의 출발점.
-        </div>
-      </div>
-      <div class="wstage">
-        <div class="phase">Phase E</div>
-        <div class="term-en">Markup</div>
-        <div class="term-ko">상승 추세</div>
-        <div class="desc">
-          매집이 끝나고 본격적인 상승이 진행되는 단계. 
-          <strong style="color:var(--text);">새로운 고점을 만들어 가는 구간</strong>이며, 이후 다시 새 박스권을 만들기 전까지 추세가 이어집니다.
-        </div>
-      </div>
-    </div>
-
-    <div class="about-box">
-      <h4>본 리포트의 5단계 매트릭스와의 연결</h4>
-      <p>
-        본 리포트의 <strong>핵심 저점(S2)</strong>은 Wyckoff 관점의 <strong>박스 하단 지지선</strong>에 해당합니다. 
-        <strong>투매성 저점(S3)</strong>과 <strong>극단 wick(S4)</strong>은 <strong>Spring</strong> 구간에 해당하며, 
-        그 뒤의 회복은 Test → LPS → SOS의 순서로 진행될 가능성이 있습니다. 
-        다음 섹션의 시나리오 매트릭스 차트는 두 관점을 같은 시간축 위에 올려놓은 것입니다.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ SECTION 8 — NEAR LEVELS ============ -->
-<section>
-  <div class="wrap">
-    <div class="section-no">08 · NEAR Levels</div>
+    <div class="section-no">07 · NEAR Levels</div>
     <h2>NEAR 저점 후보 5단계 매트릭스</h2>
     <p class="lede-2">
       다음 다섯 구간은 <strong style="color:var(--text);">확정 예측이 아니라 관찰 구간</strong>입니다. 
@@ -1851,7 +1651,7 @@ section p em.gold {
         <div class="lname" data-mobile-label="구간">투매성 저점 후보</div>
         <div class="lprice" data-mobile-label="NEAR 가격">$0.55 ~ $0.75<span class="krw">₩806 ~ 1,099</span></div>
         <div class="lbtc" data-mobile-label="BTC 동행">$50K 중 ~ 40K 중</div>
-        <div class="lmean" data-mobile-label="의미">BTC 40K 중반 진입 시 동반 압력 / Wyckoff Spring 가능</div>
+        <div class="lmean" data-mobile-label="의미">BTC 40K 중반 진입 시 동반 압력 / 가짜 하락 가능성</div>
       </div>
       <div class="levels-row" data-s="4">
         <div class="stage-tag">S4</div>
@@ -1874,260 +1674,279 @@ section p em.gold {
 </section>
 
 
-<!-- ============ SECTION 9 — SCENARIO MATRIX (INTEGRATED WITH WYCKOFF) ============ -->
+<!-- ============ SECTION 8 — BTC × NEAR PRICE FLOW (5-YEAR DUAL CHART) ============ -->
 <section id="scenario-matrix">
   <div class="wrap">
-    <div class="section-no">09 · Scenario Matrix × Wyckoff</div>
-    <h2>통합 시각화 — 지금 우리는 어디에 있는가</h2>
+    <div class="section-no">08 · Price Flow · BTC × NEAR</div>
+    <h2>5년 가격 흐름 — BTC와 NEAR가 같이 통과한 시간</h2>
     <p class="lede-2">
-      앞 두 섹션에서 본 <strong style="color:var(--text);">Wyckoff 매집 5단계</strong>와 
-      <strong style="color:var(--text);">NEAR 저점 후보 5단계</strong>를 같은 시간축 위에 겹쳐 놓은 그림입니다. 
-      차트 분석의 단계와 가격 시나리오의 단계가 어떻게 같은 자리에서 만나는지를 보여주는 것이 이 섹션의 목적입니다.
+      2021년 11월부터 2027년 초까지의 시간을 한 그림 위에 올려 두었습니다. 
+      BTC와 NEAR는 가격 단위가 워낙 달라 절대 가격으로 겹쳐 그리면 NEAR 라인이 거의 보이지 않습니다. 
+      그래서 두 자산 모두 <strong style="color:var(--text);">자기 최고점(ATH) 대비 %</strong>로 정규화했습니다 — 
+      이러면 두 자산이 각자의 정점에서 어떻게 멀어지고, 어떻게 회복하는지가 한 축에서 비교됩니다.
     </p>
 
-    <!-- Reading guide -->
-    <div class="matrix-intro">
-      <div class="intro-block">
-        <h4>가로축 — 시간</h4>
-        <p>2026년 5월(현재)부터 2027년 2월까지. 상단의 컬러 밴드는 그 시기의 <strong>Wyckoff 단계</strong>를, 하단의 라벨은 같은 시간대의 <strong>월</strong>을 가리킵니다.</p>
-      </div>
-      <div class="intro-block">
-        <h4>세로축 — NEAR 가격</h4>
-        <p>$0.40부터 $1.70까지. 6개의 노드 <strong>S0 ~ S5</strong>는 본 리포트가 표시하는 관찰 좌표이며, 점선은 시나리오 경로(예측 ≠ 관찰)를 도식화한 것입니다.</p>
-      </div>
-    </div>
-
-    <!-- The integrated SVG chart -->
+    <!-- The dual-line chart -->
     <div class="matrix-chart-wrap">
-      <svg viewBox="0 0 880 540" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <!-- Plot area: x [80, 800], y [80, 440]. Plot height = 360, plot width = 720 -->
-        <!-- y(price) = 80 + (1 - (price - 0.4) / 1.3) * 360 -->
+      <svg viewBox="0 0 880 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- Plot area: x [80, 800], y [80, 460]. plotW = 720, plotH = 380 -->
+        <!-- Time axis: 2021-11 (m=0) to 2027-02 (m=64). x(m) = 80 + (m/64)*720 -->
+        <!-- % axis: 0% to 110%. y(pct) = 80 + (1 - pct/110)*380 -->
 
-        <!-- ================== TOP: WYCKOFF PHASE BANDS ================== -->
-        <!-- Phase B (박스권): May → Sep (idx 0 to 4.5) -->
-        <rect x="80" y="35" width="360" height="22" fill="#5C6E92" opacity="0.18"/>
-        <rect x="80" y="35" width="360" height="22" fill="none" stroke="#5C6E92" stroke-width="0.4" opacity="0.5"/>
-        <text x="260" y="50" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8FA0C0" text-anchor="middle" letter-spacing="2" font-weight="600">PHASE B · 박스권 매집</text>
+        <!-- Chart title -->
+        <text x="80" y="22" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8FA0C0" font-weight="600" letter-spacing="2">최고점 대비 회복률 (%) · BTC vs NEAR</text>
+        <text x="80" y="40" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5C6E92" letter-spacing="1.5">2021.11 ~ 2027.02 · 점선 영역은 시나리오</text>
 
-        <!-- Phase C (Spring): Sep-Oct → ~Nov (idx 4.5 to 6.0) -->
-        <rect x="440" y="35" width="120" height="22" fill="#F2728E" opacity="0.22"/>
-        <rect x="440" y="35" width="120" height="22" fill="none" stroke="#F2728E" stroke-width="0.4" opacity="0.6"/>
-        <text x="500" y="50" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F2728E" text-anchor="middle" letter-spacing="1.5" font-weight="700">SPRING</text>
-
-        <!-- Phase D (LPS → SOS): Nov → Dec (idx 6.0 to 7.5) -->
-        <rect x="560" y="35" width="120" height="22" fill="#5BCFA8" opacity="0.20"/>
-        <rect x="560" y="35" width="120" height="22" fill="none" stroke="#5BCFA8" stroke-width="0.4" opacity="0.5"/>
-        <text x="620" y="50" font-family="IBM Plex Mono, monospace" font-size="10" fill="#5BCFA8" text-anchor="middle" letter-spacing="1.5" font-weight="700">LPS → SOS</text>
-
-        <!-- Phase E (Markup): Jan-Feb -->
-        <rect x="680" y="35" width="120" height="22" fill="#5BCFA8" opacity="0.32"/>
-        <rect x="680" y="35" width="120" height="22" fill="none" stroke="#5BCFA8" stroke-width="0.4" opacity="0.7"/>
-        <text x="740" y="50" font-family="IBM Plex Mono, monospace" font-size="10" fill="#5BCFA8" text-anchor="middle" letter-spacing="1.5" font-weight="700">MARKUP</text>
-
-        <!-- Chart sub-title -->
-        <text x="80" y="20" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8FA0C0" font-weight="600" letter-spacing="2">NEAR 가격 ($) × 시간 × Wyckoff 단계</text>
-
-        <!-- ================== Y-AXIS GRID & LABELS ================== -->
+        <!-- Y-axis grid lines and labels -->
         <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#5C6E92">
-          <line x1="80" y1="108" x2="800" y2="108" stroke="#2A3859" stroke-width="0.5"/>
-          <text x="72" y="112" text-anchor="end">$1.60</text>
-          <line x1="80" y1="163" x2="800" y2="163" stroke="#2A3859" stroke-width="0.5"/>
-          <text x="72" y="167" text-anchor="end">$1.40</text>
-          <line x1="80" y1="219" x2="800" y2="219" stroke="#2A3859" stroke-width="0.5"/>
-          <text x="72" y="223" text-anchor="end">$1.20</text>
-          <line x1="80" y1="274" x2="800" y2="274" stroke="#2A3859" stroke-width="0.5"/>
-          <text x="72" y="278" text-anchor="end">$1.00</text>
-          <line x1="80" y1="330" x2="800" y2="330" stroke="#2A3859" stroke-width="0.5"/>
-          <text x="72" y="334" text-anchor="end">$0.80</text>
-          <line x1="80" y1="385" x2="800" y2="385" stroke="#2A3859" stroke-width="0.5"/>
-          <text x="72" y="389" text-anchor="end">$0.60</text>
-          <line x1="80" y1="440" x2="800" y2="440" stroke="#2A3859" stroke-width="0.5"/>
-          <text x="72" y="444" text-anchor="end">$0.40</text>
+          <!-- 100% line (CRITICAL — "각자의 최고점") -->
+          <line x1="80" y1="115" x2="800" y2="115" stroke="#E9B949" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+          <text x="72" y="119" text-anchor="end" fill="#E9B949" font-weight="700">100%</text>
+          <!-- 75% -->
+          <line x1="80" y1="201" x2="800" y2="201" stroke="#2A3859" stroke-width="0.5"/>
+          <text x="72" y="205" text-anchor="end">75%</text>
+          <!-- 50% -->
+          <line x1="80" y1="287" x2="800" y2="287" stroke="#2A3859" stroke-width="0.5"/>
+          <text x="72" y="291" text-anchor="end">50%</text>
+          <!-- 25% -->
+          <line x1="80" y1="374" x2="800" y2="374" stroke="#2A3859" stroke-width="0.5"/>
+          <text x="72" y="378" text-anchor="end">25%</text>
+          <!-- 0% -->
+          <line x1="80" y1="460" x2="800" y2="460" stroke="#8FA0C0" stroke-width="0.8"/>
+          <text x="72" y="464" text-anchor="end">0%</text>
         </g>
 
-        <!-- Deep Drawdown shading -->
-        <rect x="80" y="246" width="720" height="180" fill="rgba(224,79,95,0.10)"/>
-        <text x="100" y="422" font-family="IBM Plex Mono, monospace" font-size="9" fill="#E04F5F" font-weight="700" letter-spacing="2">DEEP DRAWDOWN ZONE</text>
-
-        <!-- ================== X-AXIS LABELS ================== -->
-        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#5C6E92">
-          <text x="80" y="465" text-anchor="middle">May'26</text>
-          <text x="160" y="465" text-anchor="middle">Jun</text>
-          <text x="240" y="465" text-anchor="middle">Jul</text>
-          <text x="320" y="465" text-anchor="middle">Aug</text>
-          <text x="400" y="465" text-anchor="middle">Sep</text>
-          <text x="480" y="465" text-anchor="middle">Oct</text>
-          <text x="560" y="465" text-anchor="middle">Nov</text>
-          <text x="640" y="465" text-anchor="middle">Dec</text>
-          <text x="720" y="465" text-anchor="middle">Jan'27</text>
-          <text x="800" y="465" text-anchor="middle">Feb</text>
+        <!-- Y axis label -->
+        <g transform="translate(28, 270) rotate(-90)">
+          <text font-family="IBM Plex Mono, monospace" font-size="9" fill="#5C6E92" text-anchor="middle" letter-spacing="2">% OF ATH</text>
         </g>
 
-        <!-- Axis lines -->
-        <line x1="80" y1="80" x2="800" y2="80" stroke="#8FA0C0" stroke-width="0.5"/>
-        <line x1="80" y1="440" x2="800" y2="440" stroke="#8FA0C0" stroke-width="0.8"/>
-        <line x1="80" y1="80" x2="80" y2="440" stroke="#8FA0C0" stroke-width="0.8"/>
+        <!-- Y axis line -->
+        <line x1="80" y1="80" x2="80" y2="460" stroke="#8FA0C0" stroke-width="0.8"/>
 
-        <!-- ================== "YOU ARE HERE" — Current position vertical line ================== -->
-        <line x1="80" y1="80" x2="80" y2="440" stroke="#E9B949" stroke-width="2" stroke-dasharray="3,3" opacity="0.7"/>
-
-        <!-- Current position banner (above chart) -->
+        <!-- ================== CURRENT TIME VERTICAL LINE ================== -->
+        <!-- 2026-05 (m=54): x = 80 + (54/64)*720 = 80 + 607.5 = 687.5 -->
+        <line x1="687.5" y1="80" x2="687.5" y2="460" stroke="#E9B949" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+        <!-- "Now" badge at top -->
         <g>
-          <rect x="32" y="488" width="118" height="36" rx="2" fill="#E9B949"/>
-          <text x="91" y="503" font-family="IBM Plex Mono, monospace" font-size="9" fill="#0B1220" text-anchor="middle" font-weight="700" letter-spacing="2">YOU ARE HERE</text>
-          <text x="91" y="517" font-family="Cormorant Garamond, serif" font-size="12" fill="#0B1220" text-anchor="middle" font-weight="700" font-style="italic">2026.05.10</text>
-          <!-- Arrow pointing up to S0 -->
-          <polygon points="91,488 86,494 96,494" fill="#E9B949"/>
+          <rect x="650" y="62" width="75" height="18" rx="2" fill="#E9B949"/>
+          <text x="687.5" y="75" font-family="IBM Plex Mono, monospace" font-size="10" fill="#0B1220" text-anchor="middle" font-weight="700" letter-spacing="2">NOW</text>
         </g>
 
-        <!-- ================== SCENARIO PATHS (DASHED LINES) ================== -->
-        <!-- Node positions:
-             S0: x=80,  y=80+(1-1.15/1.3)*360 = 80+41.5 = 121.5
-             S1: x=200, y=80+(1-0.78/1.3)*360 = 80+144 = 224
-             S2: x=360, y=80+(1-0.5/1.3)*360 = 80+221.5 = 301.5
-             S3: x=520, y=80+(1-0.25/1.3)*360 = 80+290.8 = 370.8
-             S4: x=656, y=80+(1-0.09/1.3)*360 = 80+335.1 = 415.1
-             S5: x=800, y=80+(1-1.1/1.3)*360 = 80+55.4 = 135.4
+        <!-- Future scenario zone shading (right of current time) -->
+        <rect x="687.5" y="80" width="112.5" height="380" fill="rgba(143,160,192,0.05)" stroke="none"/>
+        <text x="743" y="100" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5C6E92" text-anchor="middle" letter-spacing="2" font-weight="600">SCENARIO</text>
+
+        <!-- ================== X-AXIS TIME LABELS ================== -->
+        <!-- Year markers -->
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8FA0C0" font-weight="600">
+          <!-- 2022 (m=2 to 13, midpoint ~7) -->
+          <text x="158" y="485" text-anchor="middle">2022</text>
+          <!-- 2023 (m=14 to 25, midpoint ~19) -->
+          <text x="294" y="485" text-anchor="middle">2023</text>
+          <!-- 2024 (m=26 to 37, midpoint ~31) -->
+          <text x="429" y="485" text-anchor="middle">2024</text>
+          <!-- 2025 (m=38 to 49, midpoint ~43) -->
+          <text x="564" y="485" text-anchor="middle">2025</text>
+          <!-- 2026 (m=50 to 61, midpoint ~55) -->
+          <text x="699" y="485" text-anchor="middle">2026</text>
+          <!-- 2027 (m=62+) -->
+          <text x="788" y="485" text-anchor="middle">2027</text>
+        </g>
+        <!-- Year separators -->
+        <g stroke="#2A3859" stroke-width="0.5" stroke-dasharray="2,3">
+          <line x1="103" y1="80" x2="103" y2="460"/>  <!-- 2022 boundary m=2 -->
+          <line x1="238" y1="80" x2="238" y2="460"/>  <!-- 2023 boundary m=14 -->
+          <line x1="373" y1="80" x2="373" y2="460"/>  <!-- 2024 boundary m=26 -->
+          <line x1="508" y1="80" x2="508" y2="460"/>  <!-- 2025 boundary m=38 -->
+          <line x1="643" y1="80" x2="643" y2="460"/>  <!-- 2026 boundary m=50 -->
+          <line x1="778" y1="80" x2="778" y2="460"/>  <!-- 2027 boundary m=62 -->
+        </g>
+
+        <!-- ================== BTC LINE (sky blue) ================== -->
+        <!-- ATH = $126,200 (2025-10). Past prices as % of ATH:
+             Data points (month_idx, price_K_USD, pct):
+             (0,  69, 54.7) → x=80,    y=80+(1-54.7/110)*380 = 80+0.503*380 = 80+191.2 = 271.2
+             (3,  36, 28.5) → x=113.7, y=80+(1-28.5/110)*380 = 80+0.741*380 = 80+281.5 = 361.5
+             (7,  20, 15.9) → x=158.8, y=80+(1-15.9/110)*380 = 80+0.855*380 = 80+325.0 = 405.0
+             (13, 16, 12.7) → x=226.2, y=80+(1-12.7/110)*380 = 80+0.885*380 = 80+336.5 = 416.5
+             (19, 30, 23.8) → x=293.7, y=80+(1-23.8/110)*380 = 80+0.784*380 = 80+297.9 = 377.9
+             (25, 42, 33.3) → x=361.4, y=80+(1-33.3/110)*380 = 80+0.697*380 = 80+264.9 = 344.9
+             (28, 73, 57.8) → x=395.4, y=80+(1-57.8/110)*380 = 80+0.474*380 = 80+180.0 = 260.0
+             (33, 58, 46.0) → x=451.5, y=80+(1-46.0/110)*380 = 80+0.582*380 = 80+221.0 = 301.0
+             (38, 100, 79.2) → x=507.7, y=80+(1-79.2/110)*380 = 80+0.280*380 = 80+106.4 = 186.4
+             (47, 126.2, 100.0) → x=608.7, y=80+(1-100.0/110)*380 = 80+0.0909*380 = 80+34.5 = 114.5
+             (51, 96, 76.1) → x=653.8, y=80+(1-76.1/110)*380 = 80+0.308*380 = 80+117.0 = 197.0
+             (54, 80, 63.4) → x=687.5, y=80+(1-63.4/110)*380 = 80+0.424*380 = 80+161.2 = 241.2
         -->
 
-        <!-- Baseline path: S0 → S1 → S2 → S3 -->
-        <line x1="80" y1="121.5" x2="200" y2="224" stroke="#5C6E92" stroke-width="1.5" stroke-dasharray="5,5"/>
-        <line x1="200" y1="224" x2="360" y2="301.5" stroke="#5C6E92" stroke-width="1.5" stroke-dasharray="5,5"/>
-        <line x1="360" y1="301.5" x2="520" y2="370.8" stroke="#5C6E92" stroke-width="1.5" stroke-dasharray="5,5"/>
+        <!-- BTC historical line (solid) -->
+        <polyline points="
+          80,271.2
+          113.7,361.5
+          158.8,405.0
+          226.2,416.5
+          293.7,377.9
+          361.4,344.9
+          395.4,260.0
+          451.5,301.0
+          507.7,186.4
+          608.7,114.5
+          653.8,197.0
+          687.5,241.2
+        " fill="none" stroke="#5BA9F2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- Extreme path: S3 → S4 -->
-        <line x1="520" y1="370.8" x2="656" y2="415.1" stroke="#E04F5F" stroke-width="1.5" stroke-dasharray="5,5"/>
+        <!-- BTC scenario line (dashed) -->
+        <!-- (58, 55, 43.6%) → x=732.5, y=80+(1-43.6/110)*380 = 80+0.604*380 = 80+229.4 = 309.4
+             (61, 70, 55.5%) → x=766.2, y=80+(1-55.5/110)*380 = 80+0.495*380 = 80+188.0 = 268.0
+             (64, 95, 75.3%) → x=800,   y=80+(1-75.3/110)*380 = 80+0.315*380 = 80+119.6 = 199.6
+        -->
+        <polyline points="
+          687.5,241.2
+          732.5,309.4
+          766.2,268.0
+          800,199.6
+        " fill="none" stroke="#5BA9F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6,4" opacity="0.7"/>
 
-        <!-- Recovery path: S3 → S5 -->
-        <line x1="520" y1="370.8" x2="800" y2="135.4" stroke="#5BCFA8" stroke-width="1.5" stroke-dasharray="5,5"/>
+        <!-- ================== NEAR LINE (rose) ================== -->
+        <!-- ATH = $20.42 (2022-01). Data points (month_idx, price_USD, pct):
+             (0,  8.0,  39.2) → x=80,    y=80+(1-39.2/110)*380 = 80+0.644*380 = 80+244.7 = 324.7
+             (2,  20.42, 100.0) → x=102.5, y=80+(1-100/110)*380 = 80+34.5 = 114.5
+             (5,  6.5,  31.8) → x=136.2, y=80+(1-31.8/110)*380 = 80+0.711*380 = 80+270.2 = 350.2
+             (7,  4.0,  19.6) → x=158.8, y=80+(1-19.6/110)*380 = 80+0.822*380 = 80+312.4 = 392.4
+             (13, 1.40,  6.9) → x=226.2, y=80+(1-6.9/110)*380 = 80+0.937*380 = 80+356.0 = 436.0
+             (19, 1.7,   8.3) → x=293.7, y=80+(1-8.3/110)*380 = 80+0.925*380 = 80+351.4 = 431.4
+             (25, 4.0,  19.6) → x=361.4, y=392.4
+             (28, 9.0,  44.1) → x=395.4, y=80+(1-44.1/110)*380 = 80+0.599*380 = 80+227.6 = 307.6
+             (33, 4.5,  22.0) → x=451.5, y=80+(1-22.0/110)*380 = 80+0.800*380 = 80+304.0 = 384.0
+             (38, 5.0,  24.5) → x=507.7, y=80+(1-24.5/110)*380 = 80+0.777*380 = 80+295.4 = 375.4
+             (47, 3.0,  14.7) → x=608.7, y=80+(1-14.7/110)*380 = 80+0.866*380 = 80+329.2 = 409.2
+             (51, 2.0,   9.8) → x=653.8, y=80+(1-9.8/110)*380 = 80+0.911*380 = 80+346.2 = 426.2
+             (54, 1.55,  7.6) → x=687.5, y=80+(1-7.6/110)*380 = 80+0.931*380 = 80+353.7 = 433.7
+        -->
 
-        <!-- ================== NODES ================== -->
-        <!-- S0 — with extra glow ring to mark "current" -->
-        <circle cx="80" cy="121.5" r="26" fill="none" stroke="#E9B949" stroke-width="1" opacity="0.5"/>
-        <circle cx="80" cy="121.5" r="32" fill="none" stroke="#E9B949" stroke-width="0.5" opacity="0.3"/>
-        <circle cx="80" cy="121.5" r="18" fill="#5BA9F2" stroke="#FFF" stroke-width="2.5"/>
-        <text x="80" y="126" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#0B1220" text-anchor="middle">S0</text>
-        <text x="108" y="116" font-family="Pretendard, sans-serif" font-size="11" font-weight="700" fill="#E9B949">현재 $1.55</text>
-        <text x="108" y="130" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0">BTC $80K · 박스 입구</text>
+        <!-- NEAR historical line (solid) -->
+        <polyline points="
+          80,324.7
+          102.5,114.5
+          136.2,350.2
+          158.8,392.4
+          226.2,436.0
+          293.7,431.4
+          361.4,392.4
+          395.4,307.6
+          451.5,384.0
+          507.7,375.4
+          608.7,409.2
+          653.8,426.2
+          687.5,433.7
+        " fill="none" stroke="#F2728E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- S1 -->
-        <circle cx="200" cy="224" r="18" fill="#9CC85A" stroke="#FFF" stroke-width="2"/>
-        <text x="200" y="228.5" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#0B1220" text-anchor="middle">S1</text>
-        <text x="200" y="195" font-family="Pretendard, sans-serif" font-size="11" font-weight="600" fill="#E6ECF7" text-anchor="middle">1차 관심 $1.10–1.25</text>
-        <text x="200" y="208" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0" text-anchor="middle">BTC $70–75K · ST</text>
+        <!-- NEAR scenario line (dashed) -->
+        <!-- (58, 0.85,  4.2%) → x=732.5, y=80+(1-4.2/110)*380 = 80+0.962*380 = 80+365.5 = 445.5
+             (61, 1.0,   4.9%) → x=766.2, y=80+(1-4.9/110)*380 = 80+0.955*380 = 80+362.9 = 442.9
+             (64, 1.5,   7.3%) → x=800,   y=80+(1-7.3/110)*380 = 80+0.934*380 = 80+354.9 = 434.9
+        -->
+        <polyline points="
+          687.5,433.7
+          732.5,445.5
+          766.2,442.9
+          800,434.9
+        " fill="none" stroke="#F2728E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6,4" opacity="0.7"/>
 
-        <!-- S2 -->
-        <circle cx="360" cy="301.5" r="18" fill="#E9B949" stroke="#FFF" stroke-width="2"/>
-        <text x="360" y="306" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#0B1220" text-anchor="middle">S2</text>
-        <text x="360" y="272" font-family="Pretendard, sans-serif" font-size="11" font-weight="600" fill="#E6ECF7" text-anchor="middle">핵심 저점 $0.84–0.95</text>
-        <text x="360" y="285" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0" text-anchor="middle">BTC $60–65K · 박스 하단</text>
+        <!-- ================== KEY MILESTONE MARKERS ================== -->
 
-        <!-- S3 -->
-        <circle cx="520" cy="370.8" r="18" fill="#F08A4B" stroke="#FFF" stroke-width="2"/>
-        <text x="520" y="375" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#0B1220" text-anchor="middle">S3</text>
-        <text x="455" y="368" font-family="Pretendard, sans-serif" font-size="11" font-weight="600" fill="#E6ECF7" text-anchor="end">투매성 $0.55–0.75</text>
-        <text x="455" y="381" font-family="IBM Plex Mono, monospace" font-size="9" fill="#F2728E" text-anchor="end">= Wyckoff Spring</text>
+        <!-- BTC ATH #1 (2021-11 ATH $69K = 54.7%) — softer marker -->
+        <circle cx="80" cy="271.2" r="5" fill="#5BA9F2" stroke="#0B1220" stroke-width="2"/>
 
-        <!-- S4 -->
-        <circle cx="656" cy="415.1" r="18" fill="#E04F5F" stroke="#FFF" stroke-width="2"/>
-        <text x="656" y="419.5" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#FFF" text-anchor="middle">S4</text>
-        <text x="656" y="389" font-family="Pretendard, sans-serif" font-size="11" font-weight="600" fill="#E6ECF7" text-anchor="middle">극단 wick $0.45–0.53</text>
-        <text x="656" y="402" font-family="IBM Plex Mono, monospace" font-size="9" fill="#F2728E" text-anchor="middle">Spring 끝단</text>
+        <!-- NEAR ATH (2022-01, $20.42 = 100%) — STAR marker -->
+        <circle cx="102.5" cy="114.5" r="7" fill="#F2728E" stroke="#FFF" stroke-width="2"/>
+        <text x="115" y="103" font-family="Pretendard, sans-serif" font-size="10" fill="#F2728E" font-weight="700">★ NEAR 최고점</text>
+        <text x="115" y="116" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0">$20.42 · 2022.01</text>
 
-        <!-- S5 -->
-        <circle cx="800" cy="135.4" r="18" fill="#5BCFA8" stroke="#FFF" stroke-width="2"/>
-        <text x="800" y="139.9" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#0B1220" text-anchor="middle">S5</text>
-        <text x="775" y="116" font-family="Pretendard, sans-serif" font-size="11" font-weight="600" fill="#E6ECF7" text-anchor="end">상방 진입 $1.50+</text>
-        <text x="775" y="129" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5BCFA8" text-anchor="end">SOS · Markup</text>
+        <!-- BTC ATH #2 (2025-10, $126.2K = 100%) — KEY star marker -->
+        <circle cx="608.7" cy="114.5" r="9" fill="#5BA9F2" stroke="#FFF" stroke-width="2.5"/>
+        <text x="608.7" y="93" font-family="Pretendard, sans-serif" font-size="11" fill="#5BA9F2" font-weight="700" text-anchor="middle">★ BTC 최고점 갱신</text>
+        <text x="608.7" y="106" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0" text-anchor="middle">$126,200 · 2025.10</text>
+
+        <!-- Same-time NEAR position when BTC made ATH #2 — emphasize divergence -->
+        <circle cx="608.7" cy="409.2" r="6" fill="#F2728E" stroke="#FFF" stroke-width="2"/>
+        <line x1="608.7" y1="123.5" x2="608.7" y2="403.2" stroke="#5C6E92" stroke-width="0.8" stroke-dasharray="2,3" opacity="0.6"/>
+        <text x="618" y="412" font-family="Pretendard, sans-serif" font-size="10" fill="#F2728E" font-weight="600">같은 시점 NEAR: 14.7%</text>
+        <text x="618" y="425" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0">$3.0 · ATH의 1/7 수준</text>
+
+        <!-- CURRENT POSITION marker — BTC -->
+        <circle cx="687.5" cy="241.2" r="9" fill="#5BA9F2" stroke="#E9B949" stroke-width="2.5"/>
+        <text x="687.5" y="223" font-family="Pretendard, sans-serif" font-size="10" fill="#5BA9F2" font-weight="700" text-anchor="middle">현재 BTC: 63%</text>
+
+        <!-- CURRENT POSITION marker — NEAR -->
+        <circle cx="687.5" cy="433.7" r="9" fill="#F2728E" stroke="#E9B949" stroke-width="2.5"/>
+        <text x="624" y="455" font-family="Pretendard, sans-serif" font-size="10" fill="#F2728E" font-weight="700">현재 NEAR: 7.6%</text>
+
+        <!-- Future scenario endpoint annotations -->
+        <text x="780" y="195" font-family="Pretendard, sans-serif" font-size="9" fill="#5BA9F2" font-weight="600" text-anchor="end">BTC 회복 시나리오</text>
+        <text x="780" y="430" font-family="Pretendard, sans-serif" font-size="9" fill="#F2728E" font-weight="600" text-anchor="end">NEAR 시나리오 영역</text>
+
+        <!-- ================== LEGEND ================== -->
+        <g transform="translate(95, 510)">
+          <!-- BTC -->
+          <line x1="0" y1="0" x2="22" y2="0" stroke="#5BA9F2" stroke-width="2.4"/>
+          <text x="30" y="4" font-family="Pretendard, sans-serif" font-size="11" fill="#E6ECF7" font-weight="600">BTC</text>
+          <text x="62" y="4" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0">ATH $126,200 (2025.10)</text>
+        </g>
+        <g transform="translate(310, 510)">
+          <!-- NEAR -->
+          <line x1="0" y1="0" x2="22" y2="0" stroke="#F2728E" stroke-width="2.4"/>
+          <text x="30" y="4" font-family="Pretendard, sans-serif" font-size="11" fill="#E6ECF7" font-weight="600">NEAR</text>
+          <text x="68" y="4" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8FA0C0">ATH $20.42 (2022.01)</text>
+        </g>
+        <g transform="translate(540, 510)">
+          <!-- Solid -->
+          <line x1="0" y1="0" x2="22" y2="0" stroke="#8FA0C0" stroke-width="2"/>
+          <text x="30" y="4" font-family="Pretendard, sans-serif" font-size="10" fill="#8FA0C0">실선 = 실제 가격</text>
+        </g>
+        <g transform="translate(700, 510)">
+          <!-- Dashed -->
+          <line x1="0" y1="0" x2="22" y2="0" stroke="#8FA0C0" stroke-width="2" stroke-dasharray="4,3"/>
+          <text x="30" y="4" font-family="Pretendard, sans-serif" font-size="10" fill="#8FA0C0">점선 = 시나리오</text>
+        </g>
       </svg>
     </div>
 
-    <!-- Scenario × Wyckoff mapping cards -->
-    <h3 style="font-family:var(--font-display-ko); font-size:1.15rem; color:var(--text); margin: 2rem 0 0.8rem; font-weight:700;">단계별 매핑 — 시나리오 노드 × Wyckoff 단계</h3>
-    <p style="color:var(--text-mute); font-size:0.92rem; margin-bottom: 1rem;">
-      각 시나리오 노드가 Wyckoff 매집 단계의 어디에 해당하는지를 한 줄로 정리한 표입니다.
-    </p>
-
-    <div class="matrix-mapping">
-      <div class="mapping-row" data-stage="0">
-        <div class="mapping-stage">
-          <div class="mapping-dot">S0</div>
-        </div>
-        <div class="mapping-content">
-          <div class="stage-name">현재가 부근 · $1.55</div>
-          <div class="stage-meta">2026.05 · BTC $80K</div>
-          <div class="stage-wyckoff"><em>Phase B 입구</em> — 긴 박스권 매집의 시작 자리</div>
-        </div>
+    <!-- Reading guide -->
+    <div class="matrix-intro" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="intro-block">
+        <h4>2025.10 — BTC가 신고가</h4>
+        <p>BTC는 4년 만에 이전 최고점을 깨고 <strong>$126,200</strong>의 신고가를 만들었습니다. 같은 시점 NEAR는 <strong>$3 부근</strong>에 머물러, 자기 최고점의 <strong>1/7 수준(14.7%)</strong>이었습니다.</p>
       </div>
-      <div class="mapping-row" data-stage="1">
-        <div class="mapping-stage">
-          <div class="mapping-dot">S1</div>
-        </div>
-        <div class="mapping-content">
-          <div class="stage-name">1차 관심 · $1.10–1.25</div>
-          <div class="stage-meta">2026.06–07 · BTC $70–75K</div>
-          <div class="stage-wyckoff"><em>Phase B · ST</em> — 박스 안쪽의 2차 시험점</div>
-        </div>
+      <div class="intro-block">
+        <h4>2026.05 — 현재</h4>
+        <p>BTC는 ATH 대비 <strong>63%</strong>($80,500), NEAR는 ATH 대비 <strong>7.6%</strong>($1.55). NEAR는 5년이 지나도 여전히 최고점의 <strong>10%에도 미치지 못하는</strong> 자리에 있습니다.</p>
       </div>
-      <div class="mapping-row" data-stage="2">
-        <div class="mapping-stage">
-          <div class="mapping-dot">S2</div>
-        </div>
-        <div class="mapping-content">
-          <div class="stage-name">핵심 저점 · $0.84–0.95</div>
-          <div class="stage-meta">2026.08–09 · BTC $60–65K</div>
-          <div class="stage-wyckoff"><em>박스 하단 지지선</em> — Spring 발생 직전 자리</div>
-        </div>
-      </div>
-      <div class="mapping-row" data-stage="3">
-        <div class="mapping-stage">
-          <div class="mapping-dot">S3</div>
-        </div>
-        <div class="mapping-content">
-          <div class="stage-name">투매성 저점 · $0.55–0.75</div>
-          <div class="stage-meta">2026.09–10 · BTC $50–40K중</div>
-          <div class="stage-wyckoff"><em>Phase C · Spring</em> — 박스 하단을 깨는 가짜 하락</div>
-        </div>
-      </div>
-      <div class="mapping-row" data-stage="4">
-        <div class="mapping-stage">
-          <div class="mapping-dot">S4</div>
-        </div>
-        <div class="mapping-content">
-          <div class="stage-name">극단 wick · $0.45–0.53</div>
-          <div class="stage-meta">단기 꼬리 · BTC < $40K</div>
-          <div class="stage-wyckoff"><em>Spring 끝단</em> — 외부 충격 결합 시 짧게 도달하는 영역</div>
-        </div>
-      </div>
-      <div class="mapping-row" data-stage="5">
-        <div class="mapping-stage">
-          <div class="mapping-dot">S5</div>
-        </div>
-        <div class="mapping-content">
-          <div class="stage-name">상방 진입 · $1.50+</div>
-          <div class="stage-meta">2026.Q4–2027.Q1</div>
-          <div class="stage-wyckoff"><em>Phase D·E · LPS → SOS → Markup</em> — 박스 위로 강세 돌파</div>
-        </div>
+      <div class="intro-block">
+        <h4>점선 영역 — 시나리오</h4>
+        <p>현재 시점 우측의 점선은 본 리포트의 <strong>관찰 좌표</strong>입니다. BTC가 추가 하락(43~55%) 후 회복(75%대) 가능성, NEAR가 4~5%까지 하락 후 회복 시도 가능성을 도식화했습니다.</p>
       </div>
     </div>
 
-    <div class="about-box" style="margin-top:1.8rem;">
-      <h4>이 그림의 핵심</h4>
+    <div class="about-box" style="margin-top: 1.5rem;">
+      <h4>이 차트가 보여주는 것</h4>
       <p>
-        가운데 <strong>S2 (핵심 저점, $0.84-0.95)</strong>는 Wyckoff 박스의 <strong>하단 지지선</strong>입니다. 
-        <strong>S3 (투매성, $0.55-0.75)</strong>와 <strong>S4 (극단 wick, $0.45-0.53)</strong>는 그 박스를 잠깐 깨고 다시 들어오는 
-        <em class="gold" style="color:var(--gold);font-weight:600;font-style:normal;">Spring</em> 구간입니다 — 큰 손이 마지막 매집을 마치는 동시에 약한 손이 손절하는 자리. 
-        이 두 관점은 <strong>다른 도구로 같은 자리를 가리키고 있다</strong>는 점이 본 자료의 핵심 메시지입니다.
+        파란 선(BTC)은 <strong>최고점 라인을 두 번 통과</strong>합니다 — 2021년 11월에 한 번(절반 정도 다가갔다가 떨어짐), 2025년 10월에 한 번(완전히 새 고점 갱신). 
+        반면 빨간 선(NEAR)은 <strong>2022년 1월의 한 번이 끝</strong>입니다. 그 후 5년 동안 NEAR는 자기 최고점의 50%에도 닿지 못한 채 바닥에서 출렁였습니다. 
+        이것이 본 리포트가 NEAR의 저점 후보를 BTC와 1:1로 매핑하지 않고 
+        <em class="gold" style="color:var(--gold);font-weight:600;font-style:normal;">"BTC × 시간 함수"</em>로 다루는 이유입니다 — 
+        같은 시간을 통과해도, 두 자산은 같은 시장에 있지 않습니다.
       </p>
     </div>
   </div>
 </section>
 
 
-<!-- ============ SECTION 10 — EVENT TRIGGERS ============ -->
+<!-- ============ SECTION 9 — EVENT TRIGGERS ============ -->
 <section>
   <div class="wrap">
-    <div class="section-no">10 · Event Triggers</div>
+    <div class="section-no">09 · Event Triggers</div>
     <h2>두 개의 정치 일정 — 같은 trigger, 다른 작용</h2>
     <p class="lede-2">
       차트 구조는 가격의 그릇을 만들고, 현실 이벤트는 그 그릇을 깨거나 완성시키는 trigger가 됩니다. 
@@ -2174,10 +1993,10 @@ section p em.gold {
 </section>
 
 
-<!-- ============ SECTION 11 — CONCLUSION ============ -->
+<!-- ============ SECTION 10 — CONCLUSION ============ -->
 <section class="conclusion">
   <div class="wrap">
-    <div class="section-no">11 · Conclusion</div>
+    <div class="section-no">10 · Conclusion</div>
     <h2>리포트는 가격을 맞히기 위한 글이 아니다.<em>리스크 구간을 미리 표시해 두기 위한 지도다.</em></h2>
 
     <div class="takeaways">
@@ -2248,7 +2067,7 @@ section p em.gold {
 </section>
 
 
-<!-- ============ SECTION 12 — TL;DR (THREE-LINE SUMMARY) ============ -->
+<!-- ============ SECTION 11 — TL;DR (THREE-LINE SUMMARY) ============ -->
 <section class="tldr">
   <div class="wrap">
     <div class="tldr-kicker">— TL;DR —</div>
@@ -2261,7 +2080,8 @@ section p em.gold {
           <span class="label">Where We Are</span>
           <div class="text">
             우리는 BTC가 단기 고점에서 거절당한 직후, 
-            NEAR가 <strong>긴 매집 박스(Phase B)의 입구</strong>에 들어선 자리에 있다.
+            NEAR가 자기 최고점의 <strong>10%에도 못 미치는 자리</strong>에서 
+            추가 하락 압력을 받고 있는 시점에 있다.
           </div>
         </div>
       </div>
@@ -2273,7 +2093,7 @@ section p em.gold {
           <div class="text">
             다음 6~9개월간 NEAR는 <strong>$0.84–$0.95(핵심 저점)</strong>와 
             <strong>$0.55–$0.75(투매성 저점)</strong> 구간에서 
-            Wyckoff Spring(가짜 하락)이 발생할 가능성이 있다.
+            큰 하락 후 빠른 회복(가짜 하락)이 발생할 가능성이 있다.
           </div>
         </div>
       </div>
